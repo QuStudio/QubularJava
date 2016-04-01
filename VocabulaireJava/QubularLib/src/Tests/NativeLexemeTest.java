@@ -2,6 +2,9 @@ package Tests;
 import Lexeme.NativeLexeme;
 import org.junit.Test;
 import org.junit.Ignore;
+
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -15,4 +18,5 @@ public class NativeLexemeTest {
     public void testNativeLexemeUsage(){
         assertEquals(2,usage.getPriority());
     }
+
 }

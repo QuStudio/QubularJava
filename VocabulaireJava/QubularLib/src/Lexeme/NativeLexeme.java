@@ -6,7 +6,7 @@ import Morpheme.Morpheme;
  * Created by sentosh1ne on 01.04.2016.
  */
 
-public class NativeLexeme implements Lexeme {
+public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
 
     public Morpheme lemma;
     public String meaning;
@@ -16,6 +16,11 @@ public class NativeLexeme implements Lexeme {
         this.lemma = lemma;
         this.meaning = meaning;
         this.usageType = usageType;
+    }
+
+    @Override
+    public int compareTo(NativeLexeme o) {
+        return this.usageType.getPriority() - o.usageType.getPriority();
     }
 
     public enum UsageType {
