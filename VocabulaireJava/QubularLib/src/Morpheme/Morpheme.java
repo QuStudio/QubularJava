@@ -1,3 +1,5 @@
+package Morpheme;
+
 /**
  * Created by sentosh1ne on 01.04.2016.
  */
