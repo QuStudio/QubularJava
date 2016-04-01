@@ -9,7 +9,6 @@ public class Morpheme {
     public Kind type;
 
     public enum Kind{
-
         General,
         CaseSensetive;
     }
