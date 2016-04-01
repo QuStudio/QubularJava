@@ -23,17 +23,17 @@ public class ForeignLexeme implements Lexeme,Comparable<ForeignLexeme>{
 
 
 
-    @Override
-    public <T> void sortByPriority(List<T> lexemes) {
-        List<ForeignLexeme> lexemeList;
-        try{
-           lexemeList = (List<ForeignLexeme>) lexemes;
-           Collections.sort((List<ForeignLexeme>)lexemes);
-        }catch (ClassCastException ex){
-
-        }
-
-    }
+//    @Override
+//    public <T> void sortByPriority(List<T> lexemes) {
+//        List<ForeignLexeme> lexemeList;
+//        try{
+//           lexemeList = (List<ForeignLexeme>) lexemes;
+//           Collections.sort((List<ForeignLexeme>)lexemes);
+//        }catch (ClassCastException ex){
+//
+//        }
+//
+//    }
 
     public enum Permissibility{
         Allowed,

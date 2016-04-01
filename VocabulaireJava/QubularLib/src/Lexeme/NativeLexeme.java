@@ -26,17 +26,17 @@ public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
         return this.usageType.getPriority() - o.usageType.getPriority();
     }
 
-    @Override
-    public <T> void sortByPriority(List<T> lexemes) {
-        List<NativeLexeme> lexemeList;
-        try{
-            lexemeList = (List<NativeLexeme>) lexemes;
-            Collections.sort((List<NativeLexeme>)lexemes);
-        }catch (ClassCastException ex){
-
-        }
-
-    }
+//    @Override
+//    public  <T> void sortByPriority(List<T> lexemes) {
+//        List<NativeLexeme> lexemeList;
+//        try{
+//            lexemeList = (List<NativeLexeme>) lexemes;
+//            Collections.sort((List<NativeLexeme>)lexemes);
+//        }catch (ClassCastException ex){
+//
+//        }
+//
+//    }
 
     public enum UsageType {
         General,
