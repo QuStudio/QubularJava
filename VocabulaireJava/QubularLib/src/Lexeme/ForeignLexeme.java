@@ -2,6 +2,7 @@ package Lexeme;
 
 import Morpheme.Morpheme;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +19,20 @@ public class ForeignLexeme implements Lexeme,Comparable<ForeignLexeme>{
     @Override
     public int compareTo(ForeignLexeme o) {
         return this.permissibility.getPriority() - o.permissibility.getPriority();
+    }
+
+
+
+    @Override
+    public <T> void sortByPriority(List<T> lexemes) {
+        List<ForeignLexeme> lexemeList;
+        try{
+           lexemeList = (List<ForeignLexeme>) lexemes;
+           Collections.sort((List<ForeignLexeme>)lexemes);
+        }catch (ClassCastException ex){
+
+        }
+
     }
 
     public enum Permissibility{

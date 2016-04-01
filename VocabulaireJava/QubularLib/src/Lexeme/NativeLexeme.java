@@ -2,6 +2,9 @@ package Lexeme;
 
 import Morpheme.Morpheme;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by sentosh1ne on 01.04.2016.
  */
@@ -21,6 +24,18 @@ public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
     @Override
     public int compareTo(NativeLexeme o) {
         return this.usageType.getPriority() - o.usageType.getPriority();
+    }
+
+    @Override
+    public <T> void sortByPriority(List<T> lexemes) {
+        List<NativeLexeme> lexemeList;
+        try{
+            lexemeList = (List<NativeLexeme>) lexemes;
+            Collections.sort((List<NativeLexeme>)lexemes);
+        }catch (ClassCastException ex){
+
+        }
+
     }
 
     public enum UsageType {
