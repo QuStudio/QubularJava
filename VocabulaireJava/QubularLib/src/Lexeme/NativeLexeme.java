@@ -5,18 +5,23 @@ import Morpheme.Morpheme;
 /**
  * Created by sentosh1ne on 01.04.2016.
  */
+
 public class NativeLexeme implements Lexeme {
 
     public Morpheme lemma;
     public String meaning;
-    public Usage usage;
+    public UsageType usageType;
 
-    public enum Usage{
+    public NativeLexeme(Morpheme lemma, String meaning,UsageType usageType){
+        this.lemma = lemma;
+        this.meaning = meaning;
+        this.usageType = usageType;
+    }
+
+    public enum UsageType {
         General,
         Promising,
         Rare;
-
-
 
         public int getPriority(){
             switch(this){
@@ -31,6 +36,30 @@ public class NativeLexeme implements Lexeme {
         }
     }
 
+    public Morpheme getLemma() {
+        return lemma;
+    }
+
+    public void setLemma(Morpheme lemma) {
+        this.lemma = lemma;
+    }
+
+    public String getMeaning() {
+        return meaning;
+    }
+
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
+    }
+
+    public UsageType getUsageType() {
+        return usageType;
+    }
+
+    public void setUsageType(UsageType usageType) {
+        this.usageType = usageType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,7 +69,7 @@ public class NativeLexeme implements Lexeme {
 
         if (!lemma.equals(that.lemma)) return false;
         if (meaning != null ? !meaning.equals(that.meaning) : that.meaning != null) return false;
-        return usage == that.usage;
+        return usageType == that.usageType;
 
     }
 
@@ -48,7 +77,7 @@ public class NativeLexeme implements Lexeme {
     public int hashCode() {
         int result = lemma.hashCode();
         result = 31 * result + (meaning != null ? meaning.hashCode() : 0);
-        result = 31 * result + usage.hashCode();
+        result = 31 * result + usageType.hashCode();
         return result;
     }
 }
