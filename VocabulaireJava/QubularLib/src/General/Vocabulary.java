@@ -20,9 +20,11 @@ public class Vocabulary {
             this.patch = patch;
         }
 
-        public VocabularyVersion getDevelopVersion(){
-            return new VocabularyVersion(0,0,0);
-        }
+
+    }
+
+    public VocabularyVersion getDevelopVersion(){
+        return new VocabularyVersion(0,0,0);
     }
 
     public List<Entry> getEntries() {
