@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Vocabulary {
     private List<Entry> entries;
-    public static VocabularyVersion develop;
+    public static VocabularyVersion version;
 
     public class VocabularyVersion{
         private int major;
@@ -18,6 +18,10 @@ public class Vocabulary {
             this.major = major;
             this.minor = minor;
             this.patch = patch;
+        }
+
+        public VocabularyVersion getDevelopVersion(){
+            return new VocabularyVersion(0,0,0);
         }
     }
 
@@ -30,10 +34,10 @@ public class Vocabulary {
     }
 
     public static VocabularyVersion getDevelop() {
-        return develop;
+        return version;
     }
 
     public static void setDevelop(VocabularyVersion develop) {
-        Vocabulary.develop = develop;
+        Vocabulary.version = develop;
     }
 }
