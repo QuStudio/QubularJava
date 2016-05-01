@@ -21,20 +21,6 @@ public class ForeignLexeme implements Lexeme,Comparable<ForeignLexeme>{
         return this.permissibility.getPriority() - o.permissibility.getPriority();
     }
 
-
-
-//    @Override
-//    public <T> void sortByPriority(List<T> lexemes) {
-//        List<ForeignLexeme> lexemeList;
-//        try{
-//           lexemeList = (List<ForeignLexeme>) lexemes;
-//           Collections.sort((List<ForeignLexeme>)lexemes);
-//        }catch (ClassCastException ex){
-//
-//        }
-//
-//    }
-
     public enum Permissibility{
         Allowed,
         GenerallyAllowed,

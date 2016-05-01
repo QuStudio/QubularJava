@@ -9,5 +9,4 @@ import java.util.List;
  */
 public interface Lexeme{
 
-//    public  <T> void sortByPriority(List<T> lexemes);
 }
