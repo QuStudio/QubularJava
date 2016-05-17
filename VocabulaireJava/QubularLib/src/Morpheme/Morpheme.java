@@ -1,5 +1,7 @@
 package Morpheme;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by sentosh1ne on 01.04.2016.
  */
@@ -9,7 +11,9 @@ public class Morpheme {
     public Kind type;
 
     public enum Kind{
+        @SerializedName("general")
         General,
+        @SerializedName("case-sensetive")
         CaseSensetive;
     }
 

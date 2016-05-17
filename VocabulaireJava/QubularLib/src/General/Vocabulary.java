@@ -6,18 +6,18 @@ import java.util.List;
  * Created by sentosh1ne on 01.05.2016.
  */
 public class Vocabulary {
-    private List<Entry> entries;
+    private Entry[] entries;
     public static VocabularyVersion version;
 
     public static VocabularyVersion getDevelopVersion(){
         return new VocabularyVersion(0,0,0);
     }
 
-    public List<Entry> getEntries() {
+    public Entry[] getEntries() {
         return entries;
     }
 
-    public void setEntries(List<Entry> entries) {
+    public void setEntries(Entry[] entries) {
         this.entries = entries;
     }
 

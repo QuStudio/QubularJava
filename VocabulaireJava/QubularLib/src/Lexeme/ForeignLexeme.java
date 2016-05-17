@@ -1,6 +1,7 @@
 package Lexeme;
 
 import Morpheme.Morpheme;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,10 +12,19 @@ import java.util.List;
 public class ForeignLexeme implements Lexeme,Comparable<ForeignLexeme>{
 
     public Morpheme lemma;
-    public List<Morpheme> forms;
+    public Morpheme[] forms;
     public Morpheme origin;
     public String meaning;
     public Permissibility permissibility;
+
+
+    public ForeignLexeme(Morpheme lemma, Morpheme[] forms, Morpheme origin, String meaning, Permissibility permissibility) {
+        this.lemma = lemma;
+        this.forms = forms;
+        this.origin = origin;
+        this.meaning = meaning;
+        this.permissibility = permissibility;
+    }
 
     @Override
     public int compareTo(ForeignLexeme o) {
@@ -22,9 +32,14 @@ public class ForeignLexeme implements Lexeme,Comparable<ForeignLexeme>{
     }
 
     public enum Permissibility{
+
+        @SerializedName("allowed")
         Allowed,
+        @SerializedName("generally-allowed")
         GenerallyAllowed,
+        @SerializedName("not-recommended")
         NotRecommended,
+        @SerializedName("not-allowed")
         NotAllowed;
 
         public int getPriority(){

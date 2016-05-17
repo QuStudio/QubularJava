@@ -3,6 +3,7 @@ package General;
 import Lexeme.ForeignLexeme;
 import Lexeme.NativeLexeme;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,14 +12,15 @@ import java.util.List;
 public class Entry {
 
     public int id;
-    public ForeignLexeme foreignLexeme;
-    public List<NativeLexeme> nativeLexemeList;
+    public Author author;
+    public ForeignLexeme foreign;
+    public NativeLexeme[] natives;
     public User user;
 
-    public Entry(int id, ForeignLexeme foreignLexeme, List<NativeLexeme> nativeLexemeList, User user) {
+    public Entry(int id, ForeignLexeme foreignLexeme, NativeLexeme[] nativeLexemeList, User user) {
         this.id = id;
-        this.foreignLexeme = foreignLexeme;
-        this.nativeLexemeList = nativeLexemeList;
+        this.foreign = foreignLexeme;
+        this.natives = nativeLexemeList;
         this.user = user;
     }
 
@@ -30,8 +32,10 @@ public class Entry {
         Entry entry = (Entry) o;
 
         if (id != entry.id) return false;
-        if (!foreignLexeme.equals(entry.foreignLexeme)) return false;
-        if (!nativeLexemeList.equals(entry.nativeLexemeList)) return false;
+        if (!author.equals(entry.author)) return false;
+        if (!foreign.equals(entry.foreign)) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        if (!Arrays.equals(natives, entry.natives)) return false;
         return user.equals(entry.user);
 
     }
@@ -39,8 +43,9 @@ public class Entry {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + foreignLexeme.hashCode();
-        result = 31 * result + nativeLexemeList.hashCode();
+        result = 31 * result + author.hashCode();
+        result = 31 * result + foreign.hashCode();
+        result = 31 * result + Arrays.hashCode(natives);
         result = 31 * result + user.hashCode();
         return result;
     }

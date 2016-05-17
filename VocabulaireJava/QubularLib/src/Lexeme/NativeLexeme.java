@@ -1,6 +1,7 @@
 package Lexeme;
 
 import Morpheme.Morpheme;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Collections;
 import java.util.List;
@@ -13,23 +14,27 @@ public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
 
     public Morpheme lemma;
     public String meaning;
-    public UsageType usageType;
+    public UsageType usage;
 
     public NativeLexeme(Morpheme lemma, String meaning,UsageType usageType){
         this.lemma = lemma;
         this.meaning = meaning;
-        this.usageType = usageType;
+        this.usage = usageType;
     }
 
     @Override
     public int compareTo(NativeLexeme o) {
-        return this.usageType.getPriority() - o.usageType.getPriority();
+        return this.usage.getPriority() - o.usage.getPriority();
     }
 
     public enum UsageType {
+        @SerializedName("general")
         General,
+        @SerializedName("promising")
         Promising,
+        @SerializedName("rare")
         Rare,
+        @SerializedName("fancy")
         Fancy;
 
         public int getPriority(){
@@ -64,11 +69,11 @@ public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
     }
 
     public UsageType getUsageType() {
-        return usageType;
+        return usage;
     }
 
     public void setUsageType(UsageType usageType) {
-        this.usageType = usageType;
+        this.usage = usageType;
     }
 
     @Override
@@ -80,7 +85,7 @@ public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
 
         if (!lemma.equals(that.lemma)) return false;
         if (meaning != null ? !meaning.equals(that.meaning) : that.meaning != null) return false;
-        return usageType == that.usageType;
+        return usage == that.usage;
 
     }
 
@@ -88,7 +93,7 @@ public class NativeLexeme implements Lexeme,Comparable<NativeLexeme> {
     public int hashCode() {
         int result = lemma.hashCode();
         result = 31 * result + (meaning != null ? meaning.hashCode() : 0);
-        result = 31 * result + usageType.hashCode();
+        result = 31 * result + usage.hashCode();
         return result;
     }
 }
